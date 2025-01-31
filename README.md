@@ -1,8 +1,8 @@
-ShiftMaster
+WorkScheduler
 
 📌 Project Overview
 
-ShiftMaster is a smart work scheduling system designed for organizations. It allows managers to create and optimize work schedules while considering employee constraints. Employees can submit their availability preferences, view assigned shifts, and manage their schedules effortlessly.
+WorkScheduler is a smart work scheduling system designed for organizations. It allows managers to create and optimize work schedules while considering employee constraints. Employees can submit their availability preferences, view assigned shifts, and manage their schedules effortlessly.
 
 🚀 Features
 
@@ -40,8 +40,8 @@ TailwindCSS – Responsive styling
 
 1️⃣ Clone the Repository:
 
-git clone https://github.com/your-username/ShiftMaster.git
-cd ShiftMaster
+git clone https://github.com/your-username/WorkScheduler.git
+cd WorkScheduler
 
 2️⃣ Backend Setup:
 
@@ -71,4 +71,4 @@ This project is licensed under the MIT License.
 
 Contributions are welcome! Feel free to fork the repository and submit pull requests.
 
-🚀 ShiftMaster – Smart Scheduling Made Easy!
+🚀 WorkScheduler – Smart Scheduling Made Easy!
