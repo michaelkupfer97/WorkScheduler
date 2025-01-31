@@ -1,0 +1,84 @@
+שלב 1: הפעלת השרת (Backend)
+פתח טרמינל חדש:
+
+בתוך VS Code, או בכל טרמינל אחר, נווט לתיקיית backend:
+bash
+Copy code
+cd backend
+התקן חבילות (אם לא עשית זאת קודם):
+
+ודא שכל התלויות מותקנות על ידי הרצת:
+bash
+Copy code
+npm install
+הפעל את השרת:
+
+הפעל את השרת על ידי הפקודה:
+bash
+Copy code
+node server.js
+אם השרת פועל נכון, תראה הודעה בסגנון:
+arduino
+Copy code
+Server running on port 5000
+MongoDB connected successfully
+שגיאות אפשריות:
+
+אם יש שגיאה שמציינת שהפורט תפוס: עצור את השרת הקודם באמצעות Ctrl+C, או בדוק תהליכים פתוחים עם:
+bash
+Copy code
+npx kill-port 5000
+שלב 2: הפעלת ה-Frontend
+פתח טרמינל חדש:
+
+פתח טרמינל נוסף ונווט לתיקיית frontend:
+bash
+Copy code
+cd frontend
+התקן חבילות (אם לא עשית זאת קודם):
+
+התקן את כל התלויות של הפרויקט:
+bash
+Copy code
+npm install
+הפעל את האפליקציה:
+
+הפעל את האפליקציה בפקודה:
+bash
+Copy code
+npm start
+אם הכל פועל כראוי, הדפדפן ייפתח אוטומטית ותראה את האפליקציה בכתובת:
+arduino
+Copy code
+http://localhost:3000
+שגיאות אפשריות:
+
+אם יש שגיאה כמו "React-Scripts לא נמצא", ודא שהתקנת את התלויות באמצעות npm install.
+שלב 3: בדיקות
+בדוק שה-Backend פועל:
+
+פתח דפדפן ונווט אל:
+arduino
+Copy code
+http://localhost:5000
+תראה הודעה כמו: "Backend server is running!"
+בדוק את ה-Frontend:
+
+נווט אל:
+arduino
+Copy code
+http://localhost:3000
+ודא שהאפליקציה נטענת כראוי.
+פקודות מסכמות:
+בטרמינל הראשון (Backend):
+bash
+Copy code
+cd backend
+npm install   # רק אם לא עשית זאת בעבר
+node server.js
+בטרמינל השני (Frontend):
+bash
+Copy code
+cd frontend
+npm install   # רק אם לא עשית זאת בעבר
+npm start

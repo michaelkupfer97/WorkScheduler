@@ -1,0 +1,110 @@
+/* Register.css */
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .register-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    position: absolute; /* מיקום קבוע על המסך */
+    top: 50%; /* מיקום באמצע */
+    left: 50%; /* מיקום באמצע */
+    transform: translate(-50%, -50%); /* ממרכז את הקופסה על המסך */
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .password-info {
+    font-size: 14px;
+    color: #dc3545;
+    margin-top: 5px;
+  }
+  
+  /* שינוי כפתור ההרשמה */
+  .register-box button {
+    margin-top: 20px;
+    background-color: #28a745; /* צבע ירוק לכפתור ההרשמה */
+    font-size: 14px; /* גודל קטן יותר */
+    color: #fff;
+  }
+  
+  .register-box button:hover {
+    background-color: #218838;
+  }
+  
+  .register-box button:focus {
+    outline: none;
+  }
+  
+  /* מיקום הכפתור "הירשם" בתוך טופס ההתחברות */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* מסדר את הכפתורים אחד על השני */
+    height: 100vh;
+  }
+  
+  .login-box button {
+    margin-top: 20px;
+  }
+  
+  .login-box button:last-of-type {
+    margin-top: 10px; /* כפתור "הירשם" ממוקם מיד אחרי כפתור "התחבר" */
+    font-size: 12px; /* גודל קטן יותר */
+    background-color: #28a745; /* צבע ירוק לכפתור ההרשמה */
+    color: #fff;
+  }
+  

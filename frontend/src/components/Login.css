@@ -1,0 +1,86 @@
+/* Login.css */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.login-box {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* מסדר את הכפתורים אחד מתחת לשני */
+  justify-content: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* כפתור ההתחברות וכפתור ההרשמה יהיו באותו צבע */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* אותו צבע לשני הכפתורים */
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3; /* צבע כהה יותר בעת ריחוף */
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* כפתור ההרשמה בתוך תיבת ההתחברות */
+.register-button {
+  margin-top: 15px; /* רווח קטן בין כפתור ההתחברות לכפתור ההרשמה */
+  font-size: 14px;
+  background-color: #007bff; /* אותו צבע של "התחבר" */
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}
+
+.register-button:hover {
+  background-color: #0056b3; /* צבע כהה יותר בעת ריחוף */
+}
+
+.register-button:focus {
+  outline: none;
+}
