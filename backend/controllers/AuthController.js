@@ -1,20 +1,39 @@
-import argon2 from 'argon2';
+import dotenv from 'dotenv';
+dotenv.config();
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import { User } from '../models/User.js';
 
-// פונקציית התחברות
 export const login = async (req, res) => {
   const { username, password } = req.body;
 
   try {
+    console.log('Login request:', req.body);//temp
     const user = await User.findOne({ username });
-    if (!user) return res.status(400).send('Invalid credentials');
+    console.log('User from DB:', user);//temp
+    if (!user) return res.status(400).send('Invalid credentials (user not found)');
 
-    const isMatch = await argon2.verify(user.password, password);
-    if (!isMatch) return res.status(400).send('Invalid credentials');
+    const isMatch = await bcrypt.compare(password, user.password);
+    console.log('Password match:', isMatch);//temp
+    if (!isMatch) return res.status(400).send('Invalid credentials (wrong password)');
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
-    res.send({ user, token });
+    console.log('Generated token:', token);//temp
+    console.log('JWT_SECRET from env:', process.env.JWT_SECRET);
+    // אם הכל תקין, החזר את המידע על המשתמש והטוקן
+    res.json({
+      success: true,
+      token,
+      user: {
+        username: user.username,
+        role: user.role,
+        email: user.email,
+        organization: user.organization,
+        _id: user._id
+      }
+    });
   } catch (error) {
+    console.error('Login error:', error);
     res.status(500).send('Server error');
   }
 };
@@ -28,23 +47,24 @@ export const register = async (req, res) => {
     const existingUser = await User.findOne({ $or: [{ username }, { email }] });
     if (existingUser) return res.status(400).send('User already exists');
 
-    // הצפן את הסיסמה
-    const hashedPassword = await argon2.hash(password);
+    // הצפן את הסיסמה עם bcrypt (אם לא שומרים על ה-pre save hook)
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     // יצירת משתמש חדש
     const newUser = new User({
       username,
       password: hashedPassword,
       email,
-      organization, // שייך לארגון
+      organization,
     });
 
-    // שמירה לדאטהבייס
     const savedUser = await newUser.save();
-    console.log('User saved successfully:', savedUser); // לוג לאימות
+    console.log('User saved successfully:', savedUser);
+
+    // שליחת תגובה
     res.status(201).send({ success: true, message: 'User registered successfully' });
   } catch (error) {
-    console.error('Error during registration:', error); // לוג לשגיאות
+    console.error('Error during registration:', error);
     res.status(500).send('Server error');
   }
 };

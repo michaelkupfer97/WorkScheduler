@@ -9,12 +9,5 @@ const userSchema = new mongoose.Schema({
   organization: { type: String, required: false },  // השדה לארגון
 });
 
-userSchema.pre('save', async function(next) {
-  if (this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 10);
-  }
-  next();
-});
-
 export const User = mongoose.model('User', userSchema);
 
