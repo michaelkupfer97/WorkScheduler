@@ -1,0 +1,10 @@
+{
+  "name": "workscheduler",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Smart work scheduling system",
+  "dependencies": {
+    "zod": "^3.24.1"
+  }
+}
