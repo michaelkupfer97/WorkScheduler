@@ -4,6 +4,13 @@
 
 Prerequisites: Docker Desktop running, `flyctl` installed (`winget install Fly-io.flyctl`).
 
+### Demo note (Fly trial)
+
+If you're using a Fly trial account (no billing), your machine may stop after a few minutes and the API can appear “down” until it spins back up.
+
+- Wake it up: open `https://YOUR-APP.fly.dev/healthz` once, wait ~10–30s, then refresh the frontend.
+- Data is not lost: the database is MongoDB Atlas; stopping the Fly machine does **not** delete your data.
+
 1. **Log in** (opens browser):
 
    ```powershell

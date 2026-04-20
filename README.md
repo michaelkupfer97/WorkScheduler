@@ -2,6 +2,15 @@
 
 Smart work scheduling system for organizations. Managers create and optimize schedules considering employee availability. Employees submit preferences, view shifts, request swaps, and manage time off.
 
+## Live Demo
+
+- **Demo app**: `https://work-scheduler-nine.vercel.app/`
+- **API (Fly.io)**: `https://workscheduler-michaelkupfer97.fly.dev`
+- **API health**: `https://workscheduler-michaelkupfer97.fly.dev/healthz`
+
+Notes:
+- This is a **demo** deployment; the Fly machine may sleep/stop on free trial. If the UI can’t reach the API, hit the health URL once, wait ~10–30s, and refresh.
+
 ## Features
 
 - **Authentication** -- JWT-based login/register with refresh tokens
@@ -27,6 +36,15 @@ Smart work scheduling system for organizations. Managers create and optimize sch
 | Database | MongoDB + Mongoose |
 | Auth | JWT + bcrypt |
 | Validation | Zod |
+
+## Deployment
+
+- **Frontend**: Vercel (root directory `frontend`), env `VITE_API_BASE_URL=https://workscheduler-michaelkupfer97.fly.dev/api`
+- **Backend**: Fly.io (Docker from repo root `Dockerfile`)
+- **Database**: MongoDB Atlas
+- **CORS**: backend `FRONTEND_ORIGIN` must include the Vercel URL (comma-separated origins supported)
+
+See `DEPLOY.md` for step-by-step setup.
 
 ## Getting Started
 
