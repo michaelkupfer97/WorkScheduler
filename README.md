@@ -1,74 +1,80 @@
-WorkScheduler
+# WorkScheduler
 
-📌 Project Overview
+Smart work scheduling system for organizations. Managers create and optimize schedules considering employee availability. Employees submit preferences, view shifts, request swaps, and manage time off.
 
-WorkScheduler is a smart work scheduling system designed for organizations. It allows managers to create and optimize work schedules while considering employee constraints. Employees can submit their availability preferences, view assigned shifts, and manage their schedules effortlessly.
+## Features
 
-🚀 Features
+- **Authentication** -- JWT-based login/register with refresh tokens
+- **Organizations** -- Create or join via invite code, configure shift types
+- **Schedule Management** -- Weekly grid editor, auto-generate with constraint-aware algorithm
+- **Employee Availability** -- Interactive grid to mark preferred/available/unavailable per shift
+- **Shift Swaps** -- Request, accept/reject, manager approval workflow
+- **Time-Off Requests** -- Submit and manage time-off with approval flow
+- **Notifications** -- In-app + email notifications for schedule changes
+- **i18n** -- English + Hebrew with full RTL support
+- **Mobile-first** -- Responsive design, works on any device
 
-User Authentication: Secure login system using JWT.
+## Tech Stack
 
-Work Schedule Management: Managers can assign shifts and resolve conflicts.
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React 18 + TypeScript + Vite |
+| Styling | Tailwind CSS + ShadCN/UI |
+| Routing | React Router v6 |
+| State | React Context + TanStack Query |
+| i18n | react-i18next |
+| Backend | Node.js + Express + TypeScript |
+| Database | MongoDB + Mongoose |
+| Auth | JWT + bcrypt |
+| Validation | Zod |
 
-Employee Constraints: Employees can submit their availability preferences.
+## Getting Started
 
-Conflict Detection: Automatically detects and highlights scheduling conflicts.
+### Prerequisites
 
-Responsive UI: Built with modern UI components for a seamless user experience.
+- Node.js 18+
+- MongoDB Atlas account (or local MongoDB)
 
-🛠️ Technologies Used
+### Backend
 
-Backend:
-
-Node.js & Express.js – Server-side logic
-
-MongoDB & Mongoose – Database management
-
-Argon2 – Secure password hashing
-
-JWT (JSON Web Token) – Authentication
-
-Frontend:
-
-React & TypeScript – Modern and scalable frontend
-
-ShadCN/UI – UI components for better UX
-
-TailwindCSS – Responsive styling
-
-⚙️ Installation & Setup
-
-1️⃣ Clone the Repository:
-
-git clone https://github.com/your-username/WorkScheduler.git
-cd WorkScheduler
-
-2️⃣ Backend Setup:
-
+```bash
 cd backend
 npm install
+# Configure .env (see .env.example)
+npm run dev
+```
 
-Create a .env file and configure environment variables:
+### Frontend
 
-MONGO_URI=your-mongodb-url
-JWT_SECRET=your-secret-key
-
-Run the backend:
-
-npm start
-
-3️⃣ Frontend Setup:
-
+```bash
 cd frontend
 npm install
-npm start
+npm run dev
+```
 
-📜 License
+The frontend runs on `http://localhost:5173` and proxies API requests to the backend on port 5000.
 
-This project is licensed under the MIT License.
+## Environment Variables
 
-🤝 Contributing
+### Backend (.env)
 
-Contributions are welcome! Feel free to fork the repository and submit pull requests.
+```
+PORT=5000
+MONGODB_URI=your-mongodb-connection-string
+JWT_SECRET=your-jwt-secret
+JWT_REFRESH_SECRET=your-refresh-secret
+FRONTEND_ORIGIN=http://localhost:5173
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=
+SMTP_PASS=
+```
 
-🚀 WorkScheduler – Smart Scheduling Made Easy!
+## Project Structure
+
+```
+WorkScheduler/
+  backend/src/        -- Express API (TypeScript)
+  frontend/src/       -- React app (TypeScript)
+  shared/             -- Shared types and Zod validation schemas
+```

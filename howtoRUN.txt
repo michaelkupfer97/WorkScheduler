@@ -1,7 +1,0 @@
---------------------
-open 2 terminal
-one for server.js
-one for frontend
-in both write:
-npm install
-npm start
